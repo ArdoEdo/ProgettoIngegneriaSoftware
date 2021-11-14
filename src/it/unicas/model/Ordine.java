@@ -50,7 +50,7 @@ public class Ordine {
     }
 
 
-    public int getTavolo_numero_tavolo() {
+    public Integer getTavolo_numero_tavolo() {
         return tavolo_numero_tavolo.get();
     }
 

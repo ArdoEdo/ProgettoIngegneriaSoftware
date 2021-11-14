@@ -35,7 +35,7 @@ public class OrdineDAOMySQLImpl {
 
         ArrayList<Ordine> lista = new ArrayList<>();
         Statement st = DAOMySQLSettings.getStatement();
-        String sql = "select * from ordine";
+        String sql = "SELECT * FROM ordine where";
         ResultSet rs=st.executeQuery(sql);
 
         while(rs.next()){
@@ -48,6 +48,44 @@ public class OrdineDAOMySQLImpl {
         DAOMySQLSettings.closeStatement(st);
         return lista;
     }
+
+    /**
+     *
+     * @param a
+     * @throws DAOException
+     * la delete cancella istanze di ordini una volta che è stato eseguito il pagamento correttamente
+     * la ricerca avviene per numero tavolo e locazione quindi in generale n istanze
+     */
+    private void delete (Ordine a) throws DAOException {
+
+        if(a.getTavolo_numero_tavolo()==null|| a.getTavolo_locazione_tavolo()==null){
+            throw new DAOException("Nella delete numero_tavolo/locazione_tavolo non può essere null");
+        }
+
+        String query = "DELETE FROM ordine where tavolo_numero_tavolo='"+a.getTavolo_numero_tavolo()+"'" +
+                "and tavolo_locazione_tavolo='"+a.getTavolo_locazione_tavolo()+"'";
+
+        logger.info("SQL:"+query);
+        executeUpdate(query);
+    }
+
+    /**
+     * tale funzione generica può essere usata per insert,delete e update
+     * @param query
+     * @throws DAOException
+     */
+    private void executeUpdate(String query) throws DAOException{
+        try {
+            Statement st = DAOMySQLSettings.getStatement();
+            //int n = st.executeUpdate(query); esito query
+
+            DAOMySQLSettings.closeStatement(st);
+
+        } catch (SQLException e) {
+            throw new DAOException("In insert(): " + e.getMessage());
+        }
+    }
+
 
 
 }
