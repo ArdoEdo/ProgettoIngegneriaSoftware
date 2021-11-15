@@ -1,5 +1,6 @@
 package it.unicas.model;
 
+
 import javafx.beans.property.*;
 import javafx.beans.value.ChangeListener;
 
@@ -33,7 +34,7 @@ public class Ordine {
     }
 
 
-    public int getId_ordine() {
+    public Integer getId_ordine() {
         return id_ordine.get();
     }
 
@@ -54,7 +55,7 @@ public class Ordine {
         return tavolo_numero_tavolo.get();
     }
 
-    public void setTavolo_numero_tavolo(int tavolo_numero_tavolo) {
+    public void setTavolo_numero_tavolo(Integer tavolo_numero_tavolo) {
         this.tavolo_numero_tavolo.set(tavolo_numero_tavolo);
     }
 
@@ -74,7 +75,7 @@ public class Ordine {
         this.tavolo_locazione_tavolo.set(tavolo_locazione_tavolo);
     }
 
-    public int getProdotto_id_prodotto() {
+    public Integer getProdotto_id_prodotto() {
         return prodotto_id_prodotto.get();
     }
 
@@ -82,11 +83,11 @@ public class Ordine {
         return prodotto_id_prodotto;
     }
 
-    public void setProdotto_id_prodotto(int prodotto_id_prodotto) {
+    public void setProdotto_id_prodotto(Integer prodotto_id_prodotto) {
         this.prodotto_id_prodotto.set(prodotto_id_prodotto);
     }
 
-    public boolean isOrdine_preparato() {
+    public Boolean isOrdine_preparato() {
         return ordine_preparato.get();
     }
 
@@ -100,7 +101,7 @@ public class Ordine {
 
     public String toString(){
 
-        return id_ordine.getValue().toString() +','+ tavolo_numero_tavolo.getValue().toString() +','+ tavolo_locazione_tavolo.getValue() +','+ prodotto_id_prodotto.getValue().toString() +','+ ordine_preparato.getValue().toString() ;
+        return id_ordine.getValue().toString() +" | "+ tavolo_numero_tavolo.getValue().toString() +" | "+ tavolo_locazione_tavolo.getValue() +" | "+ prodotto_id_prodotto.getValue().toString() +" | "+ ordine_preparato.getValue().toString() ;
 
 
     }
