@@ -99,17 +99,20 @@ public class Ordine {
         this.ordine_preparato.set(ordine_preparato);
     }
 
-    public String toString(){
-
-        return id_ordine.getValue().toString() +" | "+ tavolo_numero_tavolo.getValue().toString() +" | "+ tavolo_locazione_tavolo.getValue() +" | "+ prodotto_id_prodotto.getValue().toString() +" | "+ ordine_preparato.getValue().toString() ;
-
-
+    @Override
+    public String toString() {
+        return "Ordine{" +
+                "id_ordine=" + id_ordine +
+                ", tavolo_numero_tavolo=" + tavolo_numero_tavolo +
+                ", tavolo_locazione_tavolo=" + tavolo_locazione_tavolo +
+                ", prodotto_id_prodotto=" + prodotto_id_prodotto +
+                ", ordine_preparato=" + ordine_preparato +
+                '}';
     }
+
     public static void main(String[] args) {
         Ordine ordine= new Ordine();
 
-
-        System.out.println("Ordine finito");
 
 
     }

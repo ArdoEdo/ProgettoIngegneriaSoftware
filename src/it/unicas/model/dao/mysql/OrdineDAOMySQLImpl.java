@@ -32,6 +32,14 @@ public class OrdineDAOMySQLImpl {
 
     }
 
+    /**
+     * Funzione di select
+     *
+     * @param a
+     * @return
+     * @throws DAOException
+     * @throws SQLException
+     */
     public List<Ordine> select(Ordine a) throws DAOException, SQLException {
 
         ArrayList<Ordine> lista = new ArrayList<>();
@@ -47,29 +55,10 @@ public class OrdineDAOMySQLImpl {
                     rs.getBoolean("ordine_preparato")));
         }
         DAOMySQLSettings.closeStatement(st);
-        Prodotto p = new Prodotto();
-
-       st = DAOMySQLSettings.getStatement();
-       System.out.println(lista.get(1).getProdotto_id_prodotto());
-       sql = "SELECT * FROM prodotto where tipo_prodotto = 'snack' and id_prodotto = '"+lista.get(1).getProdotto_id_prodotto()+"'";
-       System.out.println(sql);
-       rs=st.executeQuery(sql);
-       rs.next();
-       System.out.println(rs.getString("nome_prodotto"));
-       p.setId_prodotto(rs.getInt("id_prodotto"));
-       p.setNome_prodotto(rs.getString("nome_prodotto"));
-       p.setTipo_prodotto(rs.getString("tipo_prodotto"));
-       p.setAlcolico(rs.getBoolean("alcolico"));
-       p.setPrezzo_prodotto(rs.getFloat("prezzo_prodotto"));
-
-       System.out.println(p);
-        DAOMySQLSettings.closeStatement(st);
 
 
         return lista;
     }
-
-
 
     /**
      *
