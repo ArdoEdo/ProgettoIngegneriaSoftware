@@ -1,6 +1,7 @@
 package it.unicas.model.dao.mysql;
 
 import it.unicas.model.Ordine;
+import it.unicas.model.Prodotto;
 import it.unicas.model.dao.DAO;
 import it.unicas.model.dao.DAOException;
 
@@ -31,11 +32,11 @@ public class OrdineDAOMySQLImpl {
 
     }
 
-    private List<Ordine> select(Ordine a) throws DAOException, SQLException {
+    public List<Ordine> select(Ordine a) throws DAOException, SQLException {
 
         ArrayList<Ordine> lista = new ArrayList<>();
         Statement st = DAOMySQLSettings.getStatement();
-        String sql = "SELECT * FROM ordine where";
+        String sql = "SELECT * FROM ordine ";
         ResultSet rs=st.executeQuery(sql);
 
         while(rs.next()){
@@ -46,8 +47,29 @@ public class OrdineDAOMySQLImpl {
                     rs.getBoolean("ordine_preparato")));
         }
         DAOMySQLSettings.closeStatement(st);
+        Prodotto p = new Prodotto();
+
+       st = DAOMySQLSettings.getStatement();
+       System.out.println(lista.get(1).getProdotto_id_prodotto());
+       sql = "SELECT * FROM prodotto where tipo_prodotto = 'snack' and id_prodotto = '"+lista.get(1).getProdotto_id_prodotto()+"'";
+       System.out.println(sql);
+       rs=st.executeQuery(sql);
+       rs.next();
+       System.out.println(rs.getString("nome_prodotto"));
+       p.setId_prodotto(rs.getInt("id_prodotto"));
+       p.setNome_prodotto(rs.getString("nome_prodotto"));
+       p.setTipo_prodotto(rs.getString("tipo_prodotto"));
+       p.setAlcolico(rs.getBoolean("alcolico"));
+       p.setPrezzo_prodotto(rs.getFloat("prezzo_prodotto"));
+
+       System.out.println(p);
+        DAOMySQLSettings.closeStatement(st);
+
+
         return lista;
     }
+
+
 
     /**
      *
@@ -56,7 +78,7 @@ public class OrdineDAOMySQLImpl {
      * la delete cancella istanze di ordini una volta che è stato eseguito il pagamento correttamente
      * la ricerca avviene per numero tavolo e locazione quindi in generale n istanze
      */
-    private void delete (Ordine a) throws DAOException {
+    public void delete (Ordine a) throws DAOException {
 
         if(a.getTavolo_numero_tavolo()==null|| a.getTavolo_locazione_tavolo()==null){
             throw new DAOException("Nella delete numero_tavolo/locazione_tavolo non può essere null");
