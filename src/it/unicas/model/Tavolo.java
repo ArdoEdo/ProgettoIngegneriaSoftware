@@ -1,6 +1,15 @@
 package it.unicas.model;
 
+import it.unicas.model.dao.DAOException;
+import it.unicas.model.dao.mysql.DAOMySQLSettings;
+import it.unicas.model.dao.mysql.OrdineDAOMySQLImpl;
 import javafx.beans.property.*;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tavolo {
     private IntegerProperty numero_tavolo;
@@ -71,9 +80,12 @@ public class Tavolo {
     }
 
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws DAOException  {
+
 
 
 
     }
+
+
 }
