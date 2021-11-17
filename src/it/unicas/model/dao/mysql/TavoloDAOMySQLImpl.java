@@ -29,10 +29,6 @@ public class TavoloDAOMySQLImpl {
         }
 
 
-
-
-
-
 }
 
     private List<Tavolo> select(Tavolo t) throws SQLException {
