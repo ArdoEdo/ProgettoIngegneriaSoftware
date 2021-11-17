@@ -1,6 +1,5 @@
 package it.unicas.model.dao.mysql;
 
-import it.unicas.model.Ordine;
 import it.unicas.model.Prodotto;
 import it.unicas.model.dao.DAO;
 import it.unicas.model.dao.DAOException;
@@ -19,6 +18,14 @@ public class ProdottoDAOMySQLImpl implements DAO<Prodotto> {
     private static DAO dao =null;
     private static Logger logger = null;
 
+    public static DAO getInstance(){
+        if (dao == null){
+            dao = new ProdottoDAOMySQLImpl();
+            logger = Logger.getLogger(ProdottoDAOMySQLImpl.class.getName());
+        }
+        return dao;
+    }
+
     public static void main(String args[]) throws DAOException, SQLException {
         ProdottoDAOMySQLImpl c = new ProdottoDAOMySQLImpl();
 
@@ -35,7 +42,10 @@ public class ProdottoDAOMySQLImpl implements DAO<Prodotto> {
     public List<Prodotto> select(Prodotto a) throws DAOException, SQLException {
         ArrayList<Prodotto> lista = new ArrayList<>();
         Statement st = DAOMySQLSettings.getStatement();
-        String sql = "SELECT * FROM prodotto where tipo_prodotto = 'bevanda' ";
+        String sql = "SELECT * FROM prodotto";
+        /*String sql = "SELECT * FROM prodotto /*where id_prodotto = ' "+a.getId_prodotto()+"'"+"and nome_prodotto = '"+a.getNome_prodotto()+"'"+"and tipo_prodotto =" +
+                "'"+a.getTipo_prodotto()+"'"+"and alcolico = '"+a.isAlcolico()+"'"+"and prezzo_prodotto = '"+a.getPrezzo_prodotto()+"'"*/;
+        System.out.println(sql);
         ResultSet rs=st.executeQuery(sql);
 
         while(rs.next()){

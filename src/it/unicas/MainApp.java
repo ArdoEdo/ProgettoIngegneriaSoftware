@@ -33,7 +33,7 @@ public class MainApp extends Application {
 
     ;
     private ObservableList<Prodotto> prodottoData= FXCollections.observableArrayList();
-    private ObservableList<Prodotto> getProdottoData(){return prodottoData;};
+    public ObservableList<Prodotto> getProdottoData(){return prodottoData;};
     private AnchorPane rootLayout;
 
     public void initRootLayout()  {
@@ -78,6 +78,12 @@ public class MainApp extends Application {
         }
 
     }
+
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+
 
 
     public static void main(String[] args) {

@@ -1,6 +1,5 @@
 package it.unicas.model.dao.mysql;
 
-import it.unicas.model.Ordine;
 import it.unicas.model.Tavolo;
 import it.unicas.model.dao.DAO;
 import it.unicas.model.dao.DAOException;

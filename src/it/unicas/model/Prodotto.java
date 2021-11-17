@@ -1,6 +1,5 @@
 package it.unicas.model;
 
-import com.google.protobuf.Internal;
 import javafx.beans.property.*;
 
 import java.util.ArrayList;
@@ -31,6 +30,9 @@ public class Prodotto {
     }
 
     public Integer getId_prodotto() {
+        if (id_prodotto != null) {
+            this.id_prodotto = new SimpleIntegerProperty(-1);
+        }
         return id_prodotto.get();
     }
 
