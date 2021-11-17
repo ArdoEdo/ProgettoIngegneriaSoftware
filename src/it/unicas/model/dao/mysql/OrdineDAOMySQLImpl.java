@@ -35,7 +35,7 @@ public class OrdineDAOMySQLImpl {
     /**
      * Funzione di select
      *
-     * @param a
+     * @param
      * @return
      * @throws DAOException
      * @throws SQLException

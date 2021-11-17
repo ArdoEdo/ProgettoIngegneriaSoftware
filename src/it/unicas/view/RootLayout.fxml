@@ -105,7 +105,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab text="Bar">
+          <Tab text="Bar" fx:id="barTab">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
             </content>

@@ -31,10 +31,6 @@ public class Prodotto {
     }
 
     public Integer getId_prodotto() {
-        if(this.id_prodotto==null){
-            this.id_prodotto= new SimpleIntegerProperty(-1);
-
-        }
         return id_prodotto.get();
     }
 
@@ -58,9 +54,6 @@ public class Prodotto {
     }
 
     public void setNome_prodotto(String nome_prodotto) {
-        if(this.nome_prodotto == null) {
-            this.nome_prodotto = new SimpleStringProperty();
-        }
         this.nome_prodotto.set(nome_prodotto);
     }
 
@@ -73,13 +66,13 @@ public class Prodotto {
     }
 
     public void setTipo_prodotto(String tipo_prodotto) {
-        if(this.tipo_prodotto==null){
-            this.tipo_prodotto=new SimpleStringProperty();
+        if(this.tipo_prodotto == null) {
+            this.tipo_prodotto = new SimpleStringProperty();
         }
         this.tipo_prodotto.set(tipo_prodotto);
     }
 
-    public Boolean isAlcolico() {
+    public boolean isAlcolico() {
         return alcolico.get();
     }
 
@@ -88,8 +81,8 @@ public class Prodotto {
     }
 
     public void setAlcolico(Boolean alcolico) {
-        if(this.alcolico == null){
-            this.alcolico=new SimpleBooleanProperty();
+        if(this.alcolico == null) {
+            this.alcolico = new SimpleBooleanProperty();
         }
         this.alcolico.set(alcolico);
     }
@@ -103,8 +96,8 @@ public class Prodotto {
     }
 
     public void setPrezzo_prodotto(Float prezzo_prodotto) {
-        if(this.prezzo_prodotto==null){
-            this.prezzo_prodotto=new SimpleFloatProperty();
+        if(this.prezzo_prodotto == null) {
+            this.prezzo_prodotto = new SimpleFloatProperty();
         }
         this.prezzo_prodotto.set(prezzo_prodotto);
     }

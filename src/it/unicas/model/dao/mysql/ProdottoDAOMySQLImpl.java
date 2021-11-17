@@ -35,7 +35,7 @@ public class ProdottoDAOMySQLImpl implements DAO<Prodotto> {
     public List<Prodotto> select(Prodotto a) throws DAOException, SQLException {
         ArrayList<Prodotto> lista = new ArrayList<>();
         Statement st = DAOMySQLSettings.getStatement();
-        String sql = "SELECT * FROM prodotto where tipo_prodotto = 'snack' ";
+        String sql = "SELECT * FROM prodotto where tipo_prodotto = 'bevanda' ";
         ResultSet rs=st.executeQuery(sql);
 
         while(rs.next()){
