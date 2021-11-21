@@ -2,10 +2,9 @@
 DiFinaPolselliPompa
 
 
-Aggiunta interfaccia con tab per:
+Modificato container interfaccia in BorderPane interfaccia con sezioni di:
 -Ordine
 -Bar
 -Cucina
 -Cassa
 
-L'interfaccia ordine permette di ordinare bevande e snack dai camerieri e baristi.
