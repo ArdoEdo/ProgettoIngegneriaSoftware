@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class OrdineDAOMySQLImpl {
+public class OrdineDAOMySQLImpl implements DAO<Ordine>{
 
     private OrdineDAOMySQLImpl(){}
 
@@ -23,11 +23,7 @@ public class OrdineDAOMySQLImpl {
         OrdineDAOMySQLImpl c = new OrdineDAOMySQLImpl();
 
 
-        List<Ordine> list = c.select(null);
-        //test di stampa
-        for(int i = 0; i < list.size(); i++){
-            System.out.println(list.get(i));
-        }
+
 
     }
 
@@ -39,6 +35,7 @@ public class OrdineDAOMySQLImpl {
      * @throws DAOException
      * @throws SQLException
      */
+    @Override
     public List<Ordine> select(Ordine a) throws DAOException, SQLException {
 
         ArrayList<Ordine> lista = new ArrayList<>();
@@ -59,6 +56,22 @@ public class OrdineDAOMySQLImpl {
         return lista;
     }
 
+    @Override
+    public void update(Ordine a) throws DAOException {
+
+    }
+
+    @Override
+    public void insert(Ordine a) throws DAOException {
+        String query="INSERT INTO ordine (id_ordine,tavolo_numero_tavolo,tavolo_locazione_tavolo" +
+                "prodotto_id_prodotto,ordine_preparato) VALUES ('"+
+                a.getId_ordine()+"','"+a.getTavolo_numero_tavolo()+"','"+a.getTavolo_locazione_tavolo()+"','"+
+                a.getProdotto_id_prodotto()+"','"+a.isOrdine_preparato()+"')";
+       logger.info("SQL: " + query);
+
+
+    }
+
     /**
      *
      * @param a
@@ -66,6 +79,7 @@ public class OrdineDAOMySQLImpl {
      * la delete cancella istanze di ordini una volta che è stato eseguito il pagamento correttamente
      * la ricerca avviene per numero tavolo e locazione quindi in generale n istanze
      */
+    @Override
     public void delete (Ordine a) throws DAOException {
 
         if(a.getTavolo_numero_tavolo()==null|| a.getTavolo_locazione_tavolo()==null){

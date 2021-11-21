@@ -1,5 +1,7 @@
 package it.unicas.model;
 
+
+
 import javafx.beans.property.*;
 
 import java.util.ArrayList;
@@ -17,7 +19,6 @@ public class Prodotto {
 
     public Prodotto(Integer id_prodotto,String nome_prodotto, String tipo_prodotto,Boolean alcolico, Float prezzo_prodotto){
 
-        this.id_prodotto = new SimpleIntegerProperty(id_prodotto);
         this.nome_prodotto = new SimpleStringProperty(nome_prodotto);
         this.tipo_prodotto = new SimpleStringProperty(tipo_prodotto);
         this.alcolico = new SimpleBooleanProperty(alcolico);

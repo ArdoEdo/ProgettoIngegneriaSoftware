@@ -11,11 +11,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class TavoloDAOMySQLImpl {
-    private TavoloDAOMySQLImpl(){}
+public class TavoloDAOMySQLImpl implements DAO<Tavolo>{
 
+    private TavoloDAOMySQLImpl(){}
     private static DAO dao =null;
     private static Logger logger = null;
+
+
+
+    public static DAO getInstance(){
+        if (dao == null){
+            dao = new TavoloDAOMySQLImpl();
+            logger = Logger.getLogger(TavoloDAOMySQLImpl.class.getName());
+        }
+        return dao;
+    }
 
     public static void main(String args[]) throws DAOException, SQLException {
 
@@ -30,18 +40,27 @@ public class TavoloDAOMySQLImpl {
 
 }
 
-    private List<Tavolo> select(Tavolo t) throws SQLException {
+    public List<Tavolo> select(Tavolo t) throws SQLException {
 
 
             ArrayList<Tavolo> lista = new ArrayList<>();
             Statement st = DAOMySQLSettings.getStatement();
-            String sql = "SELECT * FROM tavolo ";
+            String sql;
+            if(t.getNumero_tavolo()==-1 ){
+                sql = "SELECT * FROM TAVOLO WHERE locazione_tavolo= '"+ t.getLocazione_tavolo()+"' AND occupato= '"
+                    +t.isOccupato()+"' AND numero_tavolo like '%'";}
+            else {
+                sql = "SELECT * FROM TAVOLO WHERE locazione_tavolo= '"+ t.getLocazione_tavolo()+"' AND occupato= '"
+                        +t.isOccupato()+"' AND numero_tavolo = '"+t.getNumero_tavolo()+"'";
+            }
+            logger.info("SQL:"+ sql);
             ResultSet rs=st.executeQuery(sql);
             while(rs.next()){
                 lista.add(new Tavolo(rs.getInt("numero_tavolo"),
                         rs.getBoolean("occupato"),
                         rs.getString("locazione_tavolo")));
             }
+            System.out.println(sql);
             DAOMySQLSettings.closeStatement(st);
 
 
@@ -50,18 +69,20 @@ public class TavoloDAOMySQLImpl {
 
     }
 
-    private List<Tavolo> insert(Object o) {
-        return null;
+    @Override
+    public void update(Tavolo a) throws DAOException {
 
     }
 
-    private List<Tavolo> update(Object o) {
-        return null;
+    @Override
+    public void insert(Tavolo a) throws DAOException {
 
     }
 
-    private List<Tavolo> delete(Object o) {
+    @Override
+    public void delete(Tavolo a) throws DAOException {
 
-        return null;
     }
+
+
     }
