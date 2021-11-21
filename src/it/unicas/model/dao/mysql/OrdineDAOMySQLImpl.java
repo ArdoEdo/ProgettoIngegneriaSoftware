@@ -1,7 +1,6 @@
 package it.unicas.model.dao.mysql;
 
 import it.unicas.model.Ordine;
-import it.unicas.model.Prodotto;
 import it.unicas.model.dao.DAO;
 import it.unicas.model.dao.DAOException;
 
@@ -35,7 +34,7 @@ public class OrdineDAOMySQLImpl {
     /**
      * Funzione di select
      *
-     * @param a
+     * @param
      * @return
      * @throws DAOException
      * @throws SQLException

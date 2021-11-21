@@ -11,8 +11,8 @@ public class DAOMySQLSettings {
     public final static String DRIVERNAME = "com.mysql.cj.jdbc.Driver";
     public final static String HOST = "localhost";
     public final static String USERNAME = "pubstaff";
-    public final static String PWD = "Amici2021";
-    public final static String SCHEMA = "DB_pub";
+    public final static String PWD = "Pubstaff2021!";
+    public final static String SCHEMA = "db_pub";
     public final static String PARAMETERS = "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
 
 

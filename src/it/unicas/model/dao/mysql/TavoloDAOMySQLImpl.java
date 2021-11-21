@@ -1,6 +1,5 @@
 package it.unicas.model.dao.mysql;
 
-import it.unicas.model.Ordine;
 import it.unicas.model.Tavolo;
 import it.unicas.model.dao.DAO;
 import it.unicas.model.dao.DAOException;
@@ -27,10 +26,6 @@ public class TavoloDAOMySQLImpl {
         for(int i = 0; i < list.size(); i++){
             System.out.println(list.get(i));
         }
-
-
-
-
 
 
 }
