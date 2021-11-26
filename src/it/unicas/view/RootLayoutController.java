@@ -2,8 +2,6 @@ package it.unicas.view;
 
 import it.unicas.MainApp;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 
 
 public class RootLayoutController {
@@ -44,10 +42,15 @@ public class RootLayoutController {
     private void handleShowCassa(){
         mainApp.showCassaOverview();
 
+    }
+
+    @FXML
+    private void handleShowAdmin(){
+        mainApp.showAdminOverview();
 
     }
 
-    //da fare handleShowAdmin con rispettivo fxml
+
 
 
 

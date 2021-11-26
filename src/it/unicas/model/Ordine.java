@@ -2,7 +2,6 @@ package it.unicas.model;
 
 
 import javafx.beans.property.*;
-import javafx.beans.value.ChangeListener;
 
 public class Ordine {
 
@@ -10,7 +9,9 @@ public class Ordine {
     private IntegerProperty tavolo_numero_tavolo;
     private StringProperty tavolo_locazione_tavolo;
     private IntegerProperty prodotto_id_prodotto;
-    private BooleanProperty ordine_preparato;
+    private IntegerProperty ordine_preparato;
+    private IntegerProperty quantita_prodotto_or;
+
 
 
     public Ordine(){}
@@ -18,11 +19,12 @@ public class Ordine {
     /**
      il campo id_ordine dovrebbe essere sempre null perché gestito dal db con autoincrement
      */
-    public Ordine(Integer id_ordine,Integer tavolo_numero_tavolo, String tavolo_locazione_tavolo,Integer prodotto_id_prodotto,Boolean ordine_preparato){
+    public Ordine(Integer id_ordine,Integer tavolo_numero_tavolo, String tavolo_locazione_tavolo,Integer prodotto_id_prodotto,Integer ordine_preparato, Integer quantita_prodotto_or){
         this.tavolo_numero_tavolo= new SimpleIntegerProperty(tavolo_numero_tavolo);
         this.tavolo_locazione_tavolo= new SimpleStringProperty(tavolo_locazione_tavolo);
         this.prodotto_id_prodotto = new SimpleIntegerProperty(prodotto_id_prodotto);
-        this.ordine_preparato= new SimpleBooleanProperty(ordine_preparato);
+        this.ordine_preparato= new SimpleIntegerProperty(ordine_preparato);
+        this.quantita_prodotto_or = new SimpleIntegerProperty(quantita_prodotto_or);
 
         if (id_ordine != null){
             this.id_ordine = new SimpleIntegerProperty(id_ordine);
@@ -34,17 +36,17 @@ public class Ordine {
 
     public Integer getId_ordine(){
     if(id_ordine == null)
-        id_ordine=new SimpleIntegerProperty(-1);
+        id_ordine=new SimpleIntegerProperty();
 
         return id_ordine.get();
     }
 
     public void setId_ordine(Integer id_ordine) {
 
-        if (id_ordine == null){
+        if (this.id_ordine == null){
             this.id_ordine = new SimpleIntegerProperty();
         }
-        this.id_ordine.set(id_ordine);
+            this.id_ordine.set(id_ordine);
     }
 
     public IntegerProperty id_ordineProperty() {
@@ -57,6 +59,10 @@ public class Ordine {
     }
 
     public void setTavolo_numero_tavolo(Integer tavolo_numero_tavolo) {
+        if (this.tavolo_numero_tavolo == null){
+            this.tavolo_numero_tavolo = new SimpleIntegerProperty();
+        }
+
         this.tavolo_numero_tavolo.set(tavolo_numero_tavolo);
     }
 
@@ -73,6 +79,9 @@ public class Ordine {
     }
 
     public void setTavolo_locazione_tavolo(String tavolo_locazione_tavolo) {
+        if (this.tavolo_locazione_tavolo == null){
+            this.tavolo_locazione_tavolo = new SimpleStringProperty();
+        }
         this.tavolo_locazione_tavolo.set(tavolo_locazione_tavolo);
     }
 
@@ -85,19 +94,41 @@ public class Ordine {
     }
 
     public void setProdotto_id_prodotto(Integer prodotto_id_prodotto) {
+        if (this.prodotto_id_prodotto == null){
+            this.prodotto_id_prodotto = new SimpleIntegerProperty();
+        }
         this.prodotto_id_prodotto.set(prodotto_id_prodotto);
     }
 
-    public Boolean isOrdine_preparato() {
+    public Integer isOrdine_preparato() {
         return ordine_preparato.get();
     }
 
-    public BooleanProperty ordine_preparatoProperty() {
+    public IntegerProperty ordine_preparatoProperty() {
         return ordine_preparato;
     }
 
-    public void setOrdine_preparato(boolean ordine_preparato) {
+    public void setOrdine_preparato(Integer ordine_preparato) {
+        if (this.ordine_preparato == null){
+            this.ordine_preparato = new SimpleIntegerProperty();
+        }
+
         this.ordine_preparato.set(ordine_preparato);
+    }
+
+    public int getQuantita_prodotto_or() {
+        return quantita_prodotto_or.get();
+    }
+
+    public IntegerProperty quantita_prodotto_orProperty() {
+        return quantita_prodotto_or;
+    }
+
+    public void setQuantita_prodotto_or(Integer quantita_prodotto_or) {
+        if (this.quantita_prodotto_or == null){
+            this.quantita_prodotto_or = new SimpleIntegerProperty();
+        }
+        this.quantita_prodotto_or.set(quantita_prodotto_or);
     }
 
     @Override
@@ -108,10 +139,13 @@ public class Ordine {
                 ", tavolo_locazione_tavolo=" + tavolo_locazione_tavolo +
                 ", prodotto_id_prodotto=" + prodotto_id_prodotto +
                 ", ordine_preparato=" + ordine_preparato +
+                ", quantita_prodotto_or=" + quantita_prodotto_or +
                 '}';
     }
 
     public static void main(String[] args) {
+
+
 
 
     }

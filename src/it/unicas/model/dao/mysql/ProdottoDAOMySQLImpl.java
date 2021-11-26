@@ -70,4 +70,11 @@ public class ProdottoDAOMySQLImpl implements DAO<Prodotto> {
     public void delete(Prodotto a) throws DAOException {
 
     }
+
+    @Override
+    public List<Prodotto> join(Prodotto a) throws DAOException, SQLException {
+        return null;
+    }
+
+
 }

@@ -14,6 +14,9 @@ public class Prodotto {
     private StringProperty tipo_prodotto;
     private BooleanProperty alcolico;
     private FloatProperty prezzo_prodotto;
+    private IntegerProperty quantita_prodotto;
+
+
 
     public Prodotto(){};
 
@@ -23,6 +26,7 @@ public class Prodotto {
         this.tipo_prodotto = new SimpleStringProperty(tipo_prodotto);
         this.alcolico = new SimpleBooleanProperty(alcolico);
         this.prezzo_prodotto = new SimpleFloatProperty(prezzo_prodotto);
+        this.quantita_prodotto = new SimpleIntegerProperty(1);
         if (id_prodotto != null){
             this.id_prodotto = new SimpleIntegerProperty(id_prodotto);
         } else {
@@ -31,8 +35,8 @@ public class Prodotto {
     }
 
     public Integer getId_prodotto() {
-        if (id_prodotto != null) {
-            this.id_prodotto = new SimpleIntegerProperty(-1);
+        if (id_prodotto == null) {
+            this.id_prodotto =new SimpleIntegerProperty(-1);
         }
         return id_prodotto.get();
     }
@@ -103,6 +107,23 @@ public class Prodotto {
             this.prezzo_prodotto = new SimpleFloatProperty();
         }
         this.prezzo_prodotto.set(prezzo_prodotto);
+    }
+
+    public int getQuantita_prodotto() {
+        if(quantita_prodotto == null)
+            quantita_prodotto = new SimpleIntegerProperty();
+        return quantita_prodotto.get();
+    }
+
+    public IntegerProperty quantita_prodottoProperty() {
+        return quantita_prodotto;
+    }
+
+    public void setQuantita_prodotto(int quantita_prodotto) {
+        if (quantita_prodotto == 0){
+            this.quantita_prodotto = new SimpleIntegerProperty();
+        }
+        this.quantita_prodotto.set(quantita_prodotto);
     }
 
     @Override

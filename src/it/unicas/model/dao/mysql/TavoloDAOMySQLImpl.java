@@ -45,15 +45,8 @@ public class TavoloDAOMySQLImpl implements DAO<Tavolo>{
 
             ArrayList<Tavolo> lista = new ArrayList<>();
             Statement st = DAOMySQLSettings.getStatement();
-            String sql;
-            if(t.getNumero_tavolo()==-1 ){
-                sql = "SELECT * FROM TAVOLO WHERE locazione_tavolo= '"+ t.getLocazione_tavolo()+"' AND occupato= '"
-                    +t.isOccupato()+"' AND numero_tavolo like '%'";}
-            else {
-                sql = "SELECT * FROM TAVOLO WHERE locazione_tavolo= '"+ t.getLocazione_tavolo()+"' AND occupato= '"
-                        +t.isOccupato()+"' AND numero_tavolo = '"+t.getNumero_tavolo()+"'";
-            }
-            logger.info("SQL:"+ sql);
+            String sql = "SELECT * FROM tavolo where locazione_tavolo = '"+ t.getLocazione_tavolo()+"' and occupato = '"
+                    +t.isOccupato()+"'";
             ResultSet rs=st.executeQuery(sql);
             while(rs.next()){
                 lista.add(new Tavolo(rs.getInt("numero_tavolo"),
@@ -84,5 +77,10 @@ public class TavoloDAOMySQLImpl implements DAO<Tavolo>{
 
     }
 
-
+    @Override
+    public List<Tavolo> join(Tavolo a) throws DAOException, SQLException {
+        return null;
     }
+
+
+}

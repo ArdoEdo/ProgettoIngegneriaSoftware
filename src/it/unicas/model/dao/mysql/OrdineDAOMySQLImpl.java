@@ -1,6 +1,7 @@
 package it.unicas.model.dao.mysql;
 
 import it.unicas.model.Ordine;
+import it.unicas.model.ProdottiOrdinati;
 import it.unicas.model.dao.DAO;
 import it.unicas.model.dao.DAOException;
 
@@ -11,19 +12,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-public class OrdineDAOMySQLImpl implements DAO<Ordine>{
+public class OrdineDAOMySQLImpl implements DAO<Ordine> {
 
     private OrdineDAOMySQLImpl(){}
 
     private static DAO dao =null;
     private static Logger logger = null;
 
+    public static DAO getInstance(){
+        if (dao == null){
+            dao = new OrdineDAOMySQLImpl();
+            logger = Logger.getLogger(OrdineDAOMySQLImpl.class.getName());
+        }
+        return dao;
+    }
+
     public static void main(String args[]) throws DAOException, SQLException {
 
         OrdineDAOMySQLImpl c = new OrdineDAOMySQLImpl();
 
 
-
+        List<Ordine> list = c.select(null);
+        //test di stampa
+        for(int i = 0; i < list.size(); i++){
+            System.out.println(list.get(i));
+        }
 
     }
 
@@ -35,7 +48,6 @@ public class OrdineDAOMySQLImpl implements DAO<Ordine>{
      * @throws DAOException
      * @throws SQLException
      */
-    @Override
     public List<Ordine> select(Ordine a) throws DAOException, SQLException {
 
         ArrayList<Ordine> lista = new ArrayList<>();
@@ -48,7 +60,9 @@ public class OrdineDAOMySQLImpl implements DAO<Ordine>{
                     rs.getInt("tavolo_numero_tavolo"),
                     rs.getString("tavolo_locazione_tavolo"),
                     rs.getInt("prodotto_id_prodotto"),
-                    rs.getBoolean("ordine_preparato")));
+                    rs.getInt("ordine_preparato"),
+                    rs.getInt("quantita_prodotto_or")));
+
         }
         DAOMySQLSettings.closeStatement(st);
 
@@ -61,17 +75,6 @@ public class OrdineDAOMySQLImpl implements DAO<Ordine>{
 
     }
 
-    @Override
-    public void insert(Ordine a) throws DAOException {
-        String query="INSERT INTO ordine (id_ordine,tavolo_numero_tavolo,tavolo_locazione_tavolo" +
-                "prodotto_id_prodotto,ordine_preparato) VALUES ('"+
-                a.getId_ordine()+"','"+a.getTavolo_numero_tavolo()+"','"+a.getTavolo_locazione_tavolo()+"','"+
-                a.getProdotto_id_prodotto()+"','"+a.isOrdine_preparato()+"')";
-       logger.info("SQL: " + query);
-
-
-    }
-
     /**
      *
      * @param a
@@ -79,7 +82,6 @@ public class OrdineDAOMySQLImpl implements DAO<Ordine>{
      * la delete cancella istanze di ordini una volta che è stato eseguito il pagamento correttamente
      * la ricerca avviene per numero tavolo e locazione quindi in generale n istanze
      */
-    @Override
     public void delete (Ordine a) throws DAOException {
 
         if(a.getTavolo_numero_tavolo()==null|| a.getTavolo_locazione_tavolo()==null){
@@ -92,6 +94,12 @@ public class OrdineDAOMySQLImpl implements DAO<Ordine>{
         logger.info("SQL:"+query);
         executeUpdate(query);
     }
+
+    @Override
+    public List<Ordine> join(Ordine a) throws DAOException, SQLException {
+        return null;
+    }
+
 
     /**
      * tale funzione generica può essere usata per insert,delete e update
@@ -107,6 +115,23 @@ public class OrdineDAOMySQLImpl implements DAO<Ordine>{
 
         } catch (SQLException e) {
             throw new DAOException("In insert(): " + e.getMessage());
+        }
+    }
+    @Override
+    public void insert(Ordine a) throws DAOException {
+        try {
+
+            Statement st = DAOMySQLSettings.getStatement();
+            String sql = "INSERT INTO ordine(id_ordine,tavolo_numero_tavolo,tavolo_locazione_tavolo,prodotto_id_prodotto" +
+                    ",ordine_preparato,quantita_prodotto_or) VALUES ('" + a.getId_ordine() + "','" + a.getTavolo_numero_tavolo() + "','"
+                    + a.getTavolo_locazione_tavolo() + "','" + a.getProdotto_id_prodotto() +
+                    "','" + a.isOrdine_preparato() + "','" + a.getQuantita_prodotto_or() + "')";
+            st.executeUpdate(sql);
+            DAOMySQLSettings.closeStatement(st);
+
+            logger.info("SQL" + sql);
+        }catch (SQLException e){
+            e.printStackTrace();
         }
     }
 

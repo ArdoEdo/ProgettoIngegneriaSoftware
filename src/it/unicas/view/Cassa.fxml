@@ -58,8 +58,8 @@
                     <children>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                             <children>
-                                <TextField layoutX="12.0" layoutY="57.0" prefHeight="26.0" prefWidth="141.0" promptText="Inserire numero Tavolo" AnchorPane.bottomAnchor="1.0" />
-                        <ComboBox fx:id="comboBox" layoutX="7.0" layoutY="29.0" prefWidth="150.0" promptText="Locazione" />
+                                <TextField layoutX="11.0" layoutY="57.0" prefHeight="26.0" prefWidth="141.0" promptText="Inserire numero Tavolo" AnchorPane.bottomAnchor="0.5999999999999943" />
+                        <ComboBox fx:id="comboBox" layoutX="7.0" layoutY="14.0" prefWidth="150.0" promptText="Locazione" />
                             </children>
                         </AnchorPane>
                         <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
