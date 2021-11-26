@@ -1,5 +1,7 @@
 package it.unicas;
 
+import it.unicas.model.Ordine;
+import it.unicas.model.ProdottiOrdinati;
 import it.unicas.model.Prodotto;
 import it.unicas.model.Tavolo;
 import it.unicas.view.*;
@@ -9,10 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Optional;
@@ -28,14 +27,17 @@ public class MainApp extends Application {
      */
     private ObservableList<Prodotto> prodottoData= FXCollections.observableArrayList();
     private ObservableList<Tavolo> tavoloData= FXCollections.observableArrayList();
+    private ObservableList<Ordine> ordineData = FXCollections.observableArrayList();
+    private ObservableList<ProdottiOrdinati> prodottiOrdinatiData = FXCollections.observableArrayList();
 
     /**
      * Costruttore
      */
     public MainApp(){}
-
     public ObservableList<Prodotto> getProdottoData(){return prodottoData;}
     public ObservableList<Tavolo> getTavoloData(){return tavoloData;}
+    public ObservableList<Ordine> getOrdineData(){return ordineData;}
+    public ObservableList<ProdottiOrdinati> getProdottiOrdinatiData(){return prodottiOrdinatiData;}
 
 
     @Override
@@ -122,7 +124,8 @@ public class MainApp extends Application {
             rootLayout.setCenter(loader.load());
 
             // Set the Colleghis into the controller.
-            //CucinaOverviewController controller = loader.getController();
+            CucinaOverviewController controller = loader.getController();
+            controller.setMainApp(this);
             //return controller.isOkClicked();
 
 
@@ -144,7 +147,8 @@ public class MainApp extends Application {
 
             // Get controller and set the mainapp reference.
             BarOverviewController controller = loader.getController();
-            //controller.setMainApp(this);
+            controller.setMainApp(this);
+
 
 
         } catch (IOException e) {
@@ -154,18 +158,29 @@ public class MainApp extends Application {
     }
 
     public void showCassaOverview() {
-
-
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getResource("view/Cassa.fxml"));
-            // AnchorPane anchorPane = (AnchorPane) loader.load();
             rootLayout.setCenter( loader.load());
 
             // Get controller and set the mainapp reference.
             CassaOverviewController controller = loader.getController();
             //controller.setMainApp(this);
 
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
+    public void showAdminOverview() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/Admin.fxml"));
+            rootLayout.setCenter( loader.load());
+
+            // Get controller and set the mainapp reference.
+            AdminOverviewController controller = loader.getController();
+            //controller.setMainApp(this);
 
         } catch (IOException e) {
             e.printStackTrace();
