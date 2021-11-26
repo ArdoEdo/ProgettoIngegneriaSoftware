@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicas.view.RootLayoutController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@DarkTheme.css" fx:id="ancorpaneAdmin" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicas.view.RootLayoutController">
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
@@ -25,7 +25,7 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="13.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleShowOrdine" prefHeight="26.0" prefWidth="80.0" text="Ordine" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" />
+                        <Button layoutX="13.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleShowOrdine" prefHeight="26.0" prefWidth="80.0" stylesheets="@DarkTheme.css" text="Ordine" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
