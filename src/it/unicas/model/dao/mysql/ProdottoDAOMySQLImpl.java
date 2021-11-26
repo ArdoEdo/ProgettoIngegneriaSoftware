@@ -27,14 +27,9 @@ public class ProdottoDAOMySQLImpl implements DAO<Prodotto> {
     }
 
     public static void main(String args[]) throws DAOException, SQLException {
-        ProdottoDAOMySQLImpl c = new ProdottoDAOMySQLImpl();
 
 
-        List<Prodotto> list = c.select(null);
-        //test di stampa
-        for(int i = 0; i < list.size(); i++){
-            System.out.println(list.get(i));
-        }
+
 
     }
 
@@ -43,9 +38,8 @@ public class ProdottoDAOMySQLImpl implements DAO<Prodotto> {
         ArrayList<Prodotto> lista = new ArrayList<>();
         Statement st = DAOMySQLSettings.getStatement();
         String sql = "SELECT * FROM prodotto";
-        /*String sql = "SELECT * FROM prodotto /*where id_prodotto = ' "+a.getId_prodotto()+"'"+"and nome_prodotto = '"+a.getNome_prodotto()+"'"+"and tipo_prodotto =" +
-                "'"+a.getTipo_prodotto()+"'"+"and alcolico = '"+a.isAlcolico()+"'"+"and prezzo_prodotto = '"+a.getPrezzo_prodotto()+"'"*/;
-        System.out.println(sql);
+
+        logger.info("SQL:"+ sql);
         ResultSet rs=st.executeQuery(sql);
 
         while(rs.next()){
@@ -57,6 +51,7 @@ public class ProdottoDAOMySQLImpl implements DAO<Prodotto> {
 
         }
         DAOMySQLSettings.closeStatement(st);
+
         return lista;
 
     }

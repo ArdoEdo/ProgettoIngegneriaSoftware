@@ -4,7 +4,6 @@ package it.unicas.model;
 import javafx.beans.property.*;
 import javafx.beans.value.ChangeListener;
 
-//bella POLSETISPACCO
 public class Ordine {
 
     private IntegerProperty id_ordine;
@@ -20,7 +19,6 @@ public class Ordine {
      il campo id_ordine dovrebbe essere sempre null perché gestito dal db con autoincrement
      */
     public Ordine(Integer id_ordine,Integer tavolo_numero_tavolo, String tavolo_locazione_tavolo,Integer prodotto_id_prodotto,Boolean ordine_preparato){
-        this.id_ordine=new SimpleIntegerProperty(id_ordine);
         this.tavolo_numero_tavolo= new SimpleIntegerProperty(tavolo_numero_tavolo);
         this.tavolo_locazione_tavolo= new SimpleStringProperty(tavolo_locazione_tavolo);
         this.prodotto_id_prodotto = new SimpleIntegerProperty(prodotto_id_prodotto);
@@ -34,14 +32,17 @@ public class Ordine {
     }
 
 
-    public Integer getId_ordine() {
+    public Integer getId_ordine(){
+    if(id_ordine == null)
+        id_ordine=new SimpleIntegerProperty(-1);
+
         return id_ordine.get();
     }
 
     public void setId_ordine(Integer id_ordine) {
 
-        if (id_ordine != null){
-            this.id_ordine = new SimpleIntegerProperty(id_ordine);
+        if (id_ordine == null){
+            this.id_ordine = new SimpleIntegerProperty();
         }
         this.id_ordine.set(id_ordine);
     }
@@ -111,11 +112,7 @@ public class Ordine {
     }
 
     public static void main(String[] args) {
-        Ordine ordine= new Ordine();
-
 
 
     }
-
-
 }

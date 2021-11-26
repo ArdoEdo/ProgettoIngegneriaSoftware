@@ -5,11 +5,6 @@ import it.unicas.model.dao.mysql.DAOMySQLSettings;
 import it.unicas.model.dao.mysql.OrdineDAOMySQLImpl;
 import javafx.beans.property.*;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Tavolo {
     private IntegerProperty numero_tavolo;
@@ -19,13 +14,20 @@ public class Tavolo {
     public Tavolo(){}
 
     public Tavolo(Integer numero_tavolo,Boolean occupato,String locazione_tavolo){
-        this.numero_tavolo= new SimpleIntegerProperty(numero_tavolo);
         this.occupato= new SimpleBooleanProperty(occupato);
         this.locazione_tavolo= new SimpleStringProperty(locazione_tavolo);
-
+        if(numero_tavolo != null){
+            this.numero_tavolo = new SimpleIntegerProperty(numero_tavolo);
+        }
+        else{
+            this.numero_tavolo = null;
+        }
     }
 
     public Integer getNumero_tavolo() {
+        if (numero_tavolo == null) {
+            this.numero_tavolo = new SimpleIntegerProperty(-1);
+        }
         return numero_tavolo.get();
     }
 
@@ -35,7 +37,7 @@ public class Tavolo {
 
     public void setNumero_tavolo(Integer numero_tavolo) {
         if(this.numero_tavolo==null){
-            this.numero_tavolo=new SimpleIntegerProperty(-1);
+            this.numero_tavolo=new SimpleIntegerProperty();
         }
         this.numero_tavolo.set(numero_tavolo);
     }
