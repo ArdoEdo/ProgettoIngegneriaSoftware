@@ -5,10 +5,7 @@ import it.unicas.model.ProdottiOrdinati;
 import it.unicas.model.dao.DAOException;
 import it.unicas.model.dao.mysql.ProdottiOrdinatiDAOMySQLImpl;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -37,6 +34,7 @@ public class CucinaOverviewController {
         quantitaColumn.setCellValueFactory(cellData-> cellData.getValue().quantita_prodotto_orProperty().asObject());
         numeroTavoloColumn.setCellValueFactory(cellData-> cellData.getValue().tavolo_numero_tavoloProperty().asObject());
 
+        cucinaTableView.setPlaceholder(new Label("Non ci sono ordini"));
     }
 
     public void setMainApp(MainApp mainApp) {

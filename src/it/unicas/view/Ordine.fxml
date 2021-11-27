@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicas.view.OrdineOverviewController">
     <children>
-        <SplitPane dividerPositions="0.29797979797979796" layoutX="200.0" layoutY="104.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <SplitPane fx:id="splitpaneOrdine" dividerPositions="0.29797979797979796" layoutX="200.0" layoutY="104.0" prefHeight="160.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
                 <AnchorPane fx:id="ancorpaneAdmin" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                     <children>
@@ -39,6 +39,9 @@
                                     </columnResizePolicy>
                                 </TableView>
                             </center>
+                     <bottom>
+                                  <Button fx:id="caricaButton" disable="false" mnemonicParsing="false" onAction="#caricaMenu" prefHeight="26.0" prefWidth="81.0" text="Carica" BorderPane.alignment="CENTER" />
+                     </bottom>
                         </BorderPane>
                     </children>
                 </AnchorPane>
@@ -99,7 +102,6 @@
                                                 <Button fx:id="rimuoviButton" layoutX="14.0" layoutY="2.0" mnemonicParsing="false" onAction="#rimuoviButtonPressed" prefHeight="26.0" prefWidth="81.0" text="&lt;&lt;Rimuovi" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="1.0" />
                                             </children>
                                         </AnchorPane>
-                                        <Button fx:id="caricaButton" disable="false" mnemonicParsing="false" onAction="#caricaMenu" prefHeight="26.0" prefWidth="81.0" text="Carica" GridPane.rowIndex="3" />
                                     </children>
                                 </GridPane>
                             </left>

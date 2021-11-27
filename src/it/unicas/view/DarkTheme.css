@@ -2,7 +2,7 @@
     -fx-font-size: 10pt;
     -fx-font-family: "Verdana";
     -fx-text-fill: white;
-    -fx-opacity: 0.8;
+    -fx-opacity: 1;
 }
 
 
@@ -16,7 +16,7 @@
 }
 
 .table-view .column-header-background {
-    -fx-background-color: transparent;
+    -fx-background-color: #4d4d4e;
 }
 
 .table-view .column-header, .table-view .filler {
@@ -50,8 +50,8 @@
 
 .button {
     -fx-padding: 5 5 5 5;
-    -fx-border-color: #2d2e33;
-    -fx-border-width: 1;
+    -fx-border-color: #4d4d4e;
+    -fx-border-width: 1.5;
     -fx-background-radius: 0;
 
     -fx-font-family: "Verdana", Helvetica, Arial, sans-serif;
@@ -84,6 +84,11 @@
 -fx-background-color: #323d52;
 }
 
+
+#splitpaneOrdine{
+-fx-background-color: #4d4d4e;
+}
+
 #comboBoxLocazione{
     -fx-font-family: "Verdana", Helvetica, Arial, sans-serif;
     -fx-font-size: 11 pt;
@@ -95,6 +100,15 @@
     -fx-text-fill: white;
     -fx-background-color:#2d2e33;
     }
+
+    #comboBoxLocazione .list-view .list-cell:hover {
+         -fx-text-fill: #4d4d4e;
+     }
+
+    #comboBoxLocazione .cell:selected {
+         -fx-text-fill: white;
+     }
+
 
 
 #comboBoxTavolo{
@@ -109,6 +123,14 @@
 -fx-text-fill: white;
 -fx-background-color: #2d2e33;
 }
+
+#comboBoxTavolo .list-view .list-cell:hover {
+         -fx-text-fill: #4d4d4e;
+     }
+
+    #comboBoxTavolo .cell:selected {
+         -fx-text-fill: white;
+     }
 
 
 #comboBoxCucina{
@@ -126,5 +148,12 @@
 
  }
 
+ #comboBoxCucina .list-view .list-cell:hover {
+          -fx-text-fill: #4d4d4e;
+      }
+
+     #comboBoxCucina .cell:selected {
+          -fx-text-fill: white;
+      }
 
 

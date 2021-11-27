@@ -61,7 +61,7 @@ public OrdineOverviewController(){
 
 
         ordineTableView.setPlaceholder(new Label("Caricare il menu"));
-        riepilogoOrdine.setPlaceholder(new Label("I prodotti aggiunti verranno visualizzati qui"));
+        riepilogoOrdine.setPlaceholder(new Label("I prodotti aggiunti all'ordine verranno visualizzati qui"));
 
 
         //inizializzo la tabella ordineTableView con la colonna nomecolumn

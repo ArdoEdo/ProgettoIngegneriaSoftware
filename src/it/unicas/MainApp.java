@@ -46,6 +46,8 @@ public class MainApp extends Application {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Pub App");
         this.primaryStage.getIcons().add(new Image("file:resources/beer.png"));
+        this.primaryStage.setHeight(500);
+        this.primaryStage.setWidth(700);
 
         initRootLayout();
         showOrdineOverview();
