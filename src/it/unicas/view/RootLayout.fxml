@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" stylesheets="@DarkTheme.css" fx:id="ancorpaneAdmin" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicas.view.RootLayoutController">
+<BorderPane fx:id="ancorpaneAdmin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.unicas.view.RootLayoutController">
    <top>
       <AnchorPane BorderPane.alignment="CENTER">
          <children>
@@ -25,27 +25,27 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="13.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleShowOrdine" prefHeight="26.0" prefWidth="80.0" stylesheets="@DarkTheme.css" text="Ordine" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" />
+                        <Button layoutX="33.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleShowOrdine" text="Ordine" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="3.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                      <children>
-                        <Button layoutX="18.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleShowCucina" prefHeight="26.0" prefWidth="87.0" text="Cucina" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" />
+                        <Button layoutX="18.0" layoutY="3.0" mnemonicParsing="false" onAction="#handleShowCucina" prefHeight="26.0" prefWidth="87.0" text="Cucina" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="3.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
                      <children>
-                        <Button layoutX="34.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleShowBar" text="Bar" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" />
+                        <Button layoutX="34.0" layoutY="4.0" mnemonicParsing="false" onAction="#handleShowBar" text="Bar" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="3.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3">
                      <children>
-                        <Button layoutX="34.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleShowCassa" text="Cassa" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" />
+                        <Button layoutX="34.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleShowCassa" text="Cassa" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="3.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="4">
                      <children>
-                        <Button layoutX="34.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleShowAdmin" text="Admin" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" />
+                        <Button layoutX="34.0" layoutY="2.0" mnemonicParsing="false" onAction="#handleShowAdmin" text="Admin" AnchorPane.leftAnchor="18.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="3.0" />
                      </children>
                   </AnchorPane>
                </children>

@@ -4,6 +4,8 @@ import it.unicas.MainApp;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.*;
+
+
 public class AdminOverviewController {
 
     @FXML
@@ -13,9 +15,7 @@ public class AdminOverviewController {
     @FXML
     private Button Login;
 
-
     private MainApp mainApp;
-
 
     public TextField getUserName() {
         return UserName;
@@ -23,6 +23,10 @@ public class AdminOverviewController {
 
     public void setUserName(TextField userName) {
         UserName = userName;
+    }
+
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
     }
 
     public void login() {
@@ -34,6 +38,7 @@ public class AdminOverviewController {
             mes.setContentText("Benveuto " + userName);
             mes.setTitle("WELCOME");
             mes.show();
+            mainApp.showAdminOverview2();
 
         }
 

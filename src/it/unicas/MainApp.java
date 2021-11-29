@@ -185,7 +185,23 @@ public class MainApp extends Application {
 
             // Get controller and set the mainapp reference.
             AdminOverviewController controller = loader.getController();
-            //controller.setMainApp(this);
+            controller.setMainApp(this);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    public void showAdminOverview2() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getResource("view/AdminShowAdmin2.fxml"));
+            rootLayout.setCenter( loader.load());
+
+            // Get controller and set the mainapp reference.
+            AdminOverviewController2 controller = loader.getController();
+            controller.setMainApp(this);
 
         } catch (IOException e) {
             e.printStackTrace();
